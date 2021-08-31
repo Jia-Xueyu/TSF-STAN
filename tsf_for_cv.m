@@ -1,6 +1,6 @@
-% get the csp data for cross validation
+% get the tsf data for cross validation
 % need to install biosig to extract .gdf or change to extract from the .mat
-function data = csp_for_cv(subject_index)
+function data = tsf_for_cv(subject_index)
 % need biosig-code toolbox
 % the function to extract the data of one session 
 % change NaN to 0
@@ -37,7 +37,7 @@ end
 data_1(isnan(data_1)) = 0;
 
 
-% E data csp
+% E data tsf
 session_type = 'E';
 dir = ['D:\MI\MI\BCIData\Adata\A0',num2str(subject_index),session_type,'.gdf'];
 % dir = 'D:\Lab\MI\BCICIV_2a_gdf\A01E.gdf';
@@ -81,19 +81,19 @@ e_label = label(1:60);
 t_data = data(:,:,61:576);
 t_label = label(61:576);
 
-%% calculate the csp of training data
+%% calculate the tsf of training data
 index_0 = find(t_label==0);
 index_1 = find(t_label==1);
 index_2 = find(t_label==2);
 index_3 = find(t_label==3);
 
 
-%% CSP 
+%% TSF 
 % 4-40 Hz
 fc = 250;
 fb_data = zeros(1000,22,516);
 
-Wl = 4; Wh = 40; % ͨ����Χ
+Wl = 4; Wh = 40; % Í¨´ø·¶Î§
 Wn = [Wl*2 Wh*2]/fc;
 [b,a]=cheby2(6,60,Wn);
 for j = 1:516
@@ -177,7 +177,7 @@ W4 = W(:,1:4,4);
 
 Wb = [W1,W2,W3,W4]; % Z = W' * X
 
-%% Training data csp filtered
+%% Training data tsf filtered
 data = zeros(1000,16,516);
 for ntrial = 1:516
     tdata = fb_data(:,:,ntrial);
@@ -190,17 +190,17 @@ end
 
 % data = data/8;
 % data = tanh(data);
-saveDir = ['D:\MI\MI\BCIData\csp_cv_data\A0',num2str(subject_index),'T.mat'];
+saveDir = ['D:\MI\MI\BCIData\tsf_cv_data\A0',num2str(subject_index),'T.mat'];
 label = t_label + 1;
 save(saveDir,'data','label');
 
 
-%% Test data csp filtered
+%% Test data tsf filtered
 % 4-40 Hz
 fc = 250;
 fb_data = zeros(1000,22,60);
 
-Wl = 4; Wh = 40; % ͨ����Χ
+Wl = 4; Wh = 40; % Í¨´ø·¶Î§
 Wn = [Wl*2 Wh*2]/fc;
 [b,a]=cheby2(6,60,Wn);
 for j = 1:60
@@ -221,7 +221,7 @@ end
 % data = data/8;
 % data = tanh(data);
 label = e_label+1;
-saveDir = ['D:\MI\MI\BCIData\csp_cv_data\A0',num2str(subject_index),'E.mat'];
+saveDir = ['D:\MI\MI\BCIData\tsf_cv_data\A0',num2str(subject_index),'E.mat'];
 save(saveDir,'data','label');
 
 end
