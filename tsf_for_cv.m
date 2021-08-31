@@ -76,6 +76,7 @@ pindex = randperm(576);
 data = data(:,:,pindex);
 label = label(pindex);
 
+%%You can choose the size of the test set according to your habits
 e_data = data(:,:,1:60);
 e_label = label(1:60);
 t_data = data(:,:,61:576);
