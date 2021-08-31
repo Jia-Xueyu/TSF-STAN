@@ -1,5 +1,6 @@
 """
 Used to calculate the filter for four-class classification
+You can generate multiple sub-filters in a loop and then splice them into one filter for Multi-classification
 """
 
 
