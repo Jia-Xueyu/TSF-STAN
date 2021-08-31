@@ -8,11 +8,10 @@ cross validation data
 # from preprocess import *
 # from CNN_basic import cnn
 
-# from pre_fake_csp import  *
-from preprocess_csp_cv_9 import *
-# from CNN_basic_csp_cv_9 import cnn
+from preprocess_tsf_cv_9 import *
+# from CNN_basic_tsf_cv_9 import cnn
 # from easySTCNN import cnn
-from CNN_for_csp_9 import cnn,CNN
+from CNN_for_tsf_9 import cnn,CNN
 import os
 from torchstat import stat
 os.environ['CUDA_VISIBLE_DEVICES'] = '0,1,3,4,7'
