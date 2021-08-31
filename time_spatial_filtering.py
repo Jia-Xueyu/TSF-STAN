@@ -1,5 +1,5 @@
 """
-Used to calculate the common spatial pattern filter for four-class classification
+Used to calculate the filter for four-class classification
 """
 
 
@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from numpy.linalg import eig
 
 
-def csp(data_train, label_train):
+def tsf(data_train, label_train):
     sub_index = 1
     # data_train, label_train, data_test, label_test = split_subject(sub_index)
     idx_0 = np.squeeze(np.where(label_train == 0))
@@ -75,7 +75,7 @@ def csp(data_train, label_train):
 
 '''
 def main():
-    csp()
+    tsf()
 
 
 if __name__ == "__main__":
