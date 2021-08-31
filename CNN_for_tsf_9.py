@@ -1,5 +1,5 @@
 """
-A CNN framework uses the csp data as the input
+A CNN framework uses the tsf data as the input
 made with pytorch
 """
 
