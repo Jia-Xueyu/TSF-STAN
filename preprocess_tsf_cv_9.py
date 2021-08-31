@@ -1,5 +1,5 @@
 """
-preprocess for csp data
+preprocess for tsf data
 import data and split for three kinds of experiments
 the input data has been processed using MATLAB
 sample size: 1000*22
@@ -16,9 +16,9 @@ import numpy as np
 
 def import_data(sub_index, datatype):
     data, label = [], []
-    # path = '/home/syh/Documents/MI/experiments/data/cv_data2/A0'  # csp_corss validation
+    # path = '/home/syh/Documents/MI/experiments/data/cv_data2/A0'  # tsf_corss validation
 
-    path = './csp_for_collected_data/S'
+    path = './tsf_for_collected_data/S'
     # path = '/home/syh/Documents/MI/experiments/gen_data/tri_data_mat/processed/A0'
     tmp = scipy.io.loadmat(path + str(sub_index) + datatype + '.mat')
     data_one_subject = tmp['data']
