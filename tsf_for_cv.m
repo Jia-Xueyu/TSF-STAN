@@ -10,6 +10,7 @@ function data = tsf_for_cv(subject_index)
 % T data
 % subject_index = 2; %1-9
 session_type = 'T';
+
 dir = ['D:\MI\MI\BCIData\Adata\A0',num2str(subject_index),session_type,'.gdf'];
 [s, HDR] = sload(dir);
 
@@ -76,7 +77,7 @@ pindex = randperm(576);
 data = data(:,:,pindex);
 label = label(pindex);
 
-%%You can choose the size of the test set according to your habits
+%% You can choose the size of the test set according to your habits
 e_data = data(:,:,1:60);
 e_label = label(1:60);
 t_data = data(:,:,61:576);
